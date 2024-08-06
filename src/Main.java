@@ -1,8 +1,8 @@
 import java.util.Arrays;
 /*
 To run in terminal:
-javac Main.java
-java Main.java 9 3 0 2 1 45 44
+javac Main.java (compile)
+java Main.java 9 3 0 2 1 45 44 (test)
  */
 public class Main {
     public static void main(String[] args) {
@@ -12,24 +12,26 @@ public class Main {
         }
         System.out.println("Table before sorting algorithm: " + Arrays.toString(tab));
 
-        System.out.println("Table after sorting algorithm: " + Arrays.toString(sorting(tab)));
+        System.out.println("Table after sorting algorithm: " + Arrays.toString(insertionSort(tab)));
     }
 
     /**
-     * Sorting method
+     * Insertion sort method
      * @param tab - table to be sorted
      * @return sorted table
      */
-    public static int[] sorting(int[] tab){
-        for(int i = 0; i<tab.length; i++)
-            for(int j = 0; j<tab.length; j++)
-            {
-                if(tab[j] > tab[i]){
-                    int temp = tab[j];
-                    tab[j] = tab[i];
-                    tab[i] = temp;
+    public static int[] insertionSort(int[] tab){
+        for(int i = 1; i<tab.length; i++) {
+            int temp = tab[i];
+            int j = i - 1;
+                while(tab[j]>temp && j>0)
+                {
+                    tab[j+1] = tab[j];
+                    j--;
                 }
-            }
+                tab[j + 1] = temp;
+
+        }
        return tab;
     }
 
