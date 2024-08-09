@@ -24,7 +24,7 @@ public class Main {
         for(int i = 1; i<tab.length; i++) {
             int temp = tab[i];
             int j = i - 1;
-                while(tab[j]>temp && j>0)
+                while(j>=0 && tab[j]>temp)
                 {
                     tab[j+1] = tab[j];
                     j--;
